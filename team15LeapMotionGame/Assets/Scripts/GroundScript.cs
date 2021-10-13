@@ -14,6 +14,8 @@ public class GroundScript : MonoBehaviour {
 		if (other.tag == "Football") {
 			//Add to the miss counter.
 			Debug.Log("Missed.");
+			ScoreScript scoreScript = GameObject.FindGameObjectsWithTag("ScoreObject")[0].GetComponent<ScoreScript>();
+			scoreScript.GoalMissed();
 
 			//Delete the football.
 			Destroy(other.gameObject);

@@ -14,6 +14,8 @@ public class GoalScript : MonoBehaviour {
 		if(other.tag == "Football") {
 			//Add to the score.
 			Debug.Log("Goal Scored.");
+			ScoreScript scoreScript = GameObject.FindGameObjectsWithTag("ScoreObject")[0].GetComponent<ScoreScript>();
+			scoreScript.GoalScored();
 
 			//Delete the football.
 			Destroy(other.gameObject);
