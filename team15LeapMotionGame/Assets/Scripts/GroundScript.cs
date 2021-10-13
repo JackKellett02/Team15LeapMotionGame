@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundScript : MonoBehaviour {
+
+	[SerializeField]
+	BallForce ballController;
 	#region Private Functions.
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Football") {
@@ -18,7 +21,11 @@ public class GroundScript : MonoBehaviour {
 			scoreScript.GoalMissed();
 
 			//Delete the football.
-			Destroy(other.gameObject);
+			//Destroy(other.gameObject);
+			ballController.gameObject.transform.position = ballController.startPos;
+			Rigidbody temp = ballController.gameObject.GetComponent<Rigidbody>();
+			temp.velocity = Vector3.zero;
+			temp.angularVelocity = Vector3.zero;
 		}
 	}
 	#endregion

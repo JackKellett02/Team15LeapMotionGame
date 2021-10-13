@@ -458,27 +458,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2683749437467410470, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01343925
+      value: 0.009544555
       objectReference: {fileID: 0}
     - target: {fileID: 2683749437467410470, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01343925
+      value: 0.009544555
       objectReference: {fileID: 0}
     - target: {fileID: 2683749437467410470, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.01343925
+      value: 0.009544555
       objectReference: {fileID: 0}
     - target: {fileID: 2683749437467410470, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.009
+      value: 0.0056625
       objectReference: {fileID: 0}
     - target: {fileID: 2683749437467410470, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.51
+      value: 2.5104
       objectReference: {fileID: 0}
     - target: {fileID: 2683749437467410470, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.256
+      value: 0.183
       objectReference: {fileID: 0}
     - target: {fileID: 2683749437467410470, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1275,6 +1275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3489240349603524818, guid: 36384e7f8c9467042a5ad50639b563c7, type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 1125790688}
     - target: {fileID: 6059563725598994532, guid: 36384e7f8c9467042a5ad50639b563c7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1426,6 +1430,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2244053786581009518, guid: de3c3c57b189c384c98cfea388844d7f, type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 1125790688}
     - target: {fileID: 2244053786581009519, guid: de3c3c57b189c384c98cfea388844d7f, type: 3}
       propertyPath: m_Name
       value: OutOfBoundsCheck
@@ -1449,7 +1457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60afaf3648b35e140bc21b75ba54b860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Thrust: 50
+  startPos: {x: 0.009544555, y: 0.009544555, z: 0.009544555}
 --- !u!114 &1125790689
 MonoBehaviour:
   m_ObjectHideFlags: 0

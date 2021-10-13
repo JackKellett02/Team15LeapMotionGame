@@ -10,21 +10,14 @@ using UnityEngine;
 
 public class BallForce : MonoBehaviour
 {
-    Rigidbody m_Rigidbody;
-    public float m_Thrust = 20f;
+    GameObject footBall;
+    public Vector3 startPos;
 
     private void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
+        startPos = transform.position;
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "RightHand")
-        {
-            m_Rigidbody.AddForce(transform.forward * m_Thrust);
-            Debug.Log("Ball Hit");
-        }
-    }
+  
 }
