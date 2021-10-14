@@ -445,7 +445,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 521278535}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: MenuMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -613,6 +613,7 @@ MonoBehaviour:
   m_inGame: {fileID: 1193256750}
   m_settings: {fileID: 2069263741}
   m_pause: {fileID: 2005967112}
+  UIStartMain: 0
 --- !u!1 &570571941
 GameObject:
   m_ObjectHideFlags: 0

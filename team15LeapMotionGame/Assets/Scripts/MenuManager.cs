@@ -26,6 +26,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     GameObject m_pause = null;
 
+    [Header("UI start on main menu")]
+    [SerializeField]
+    bool UIStartMain = true;
+
     //Menus
     enum Menu
     {
@@ -39,7 +43,15 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MainMenu();
+        if (UIStartMain == true)
+        {
+            MenuMain();
+        }
+        else
+        {
+            MenuInGame();
+        }
+       
     }
 
     // Update is called once per frame
@@ -80,7 +92,7 @@ public class MenuManager : MonoBehaviour
     /// <summary>
     /// update the menu to in game
     /// </summary>
-    public void MainMenu()
+    public void MenuMain()
     {
         UpdateMenu(Menu.MAIN_MENU);
     }
