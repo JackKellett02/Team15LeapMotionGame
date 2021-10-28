@@ -15,6 +15,8 @@ public class BallForce : MonoBehaviour
 
     private void Start()
     {
+        footBall = GameObject.FindGameObjectsWithTag("Football")[0];
+        footBall.SetActive(false);
         startPos = transform.position;
     }
 
