@@ -15,6 +15,8 @@ using UnityEngine;
 public class ScoreScript : MonoBehaviour
 {
     //SerializeFields
+    
+    //prefabs for the scoreboard ui elements
     [SerializeField]
     GameObject UIfootballPrefab;
     [SerializeField]
@@ -23,7 +25,10 @@ public class ScoreScript : MonoBehaviour
     GameObject UITickPrefab;
 
     [SerializeField]
-    private int m_shotsMax = 5;
+    private int m_shotsMax = 5; //maximum number of shots that can be taken
+
+    [SerializeField]
+    private float score_scale = 1; //scale of score //move to use ui scale ? editiable though options
 
     //private
     private int m_shots;
@@ -100,16 +105,19 @@ public class ScoreScript : MonoBehaviour
         //Instantiate all of the score ui elements
         for (int i = 0; i < m_shotsMax; i++)
         {
-            UI_FootBall[i] = Instantiate(UIfootballPrefab, new Vector3(10+i*20, 15, 0), Quaternion.identity);
+            UI_FootBall[i] = Instantiate(UIfootballPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
             UI_FootBall[i].transform.SetParent(gameObject.transform);
+            UI_FootBall[i].transform.localScale = new Vector3(score_scale, score_scale, score_scale);
             UI_FootBall[i].SetActive(false);
 
-            UI_Cross[i] = Instantiate(UICrossPrefab, new Vector3(10 + i * 20, 15, 0), Quaternion.identity);
+            UI_Cross[i] = Instantiate(UICrossPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
             UI_Cross[i].transform.SetParent(gameObject.transform);
+            UI_Cross[i].transform.localScale = new Vector3(score_scale, score_scale, score_scale);
             UI_Cross[i].SetActive(false);
 
-            UI_Tick[i] = Instantiate(UITickPrefab, new Vector3(10 + i * 20, 15, 0), Quaternion.identity);
+            UI_Tick[i] = Instantiate(UITickPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
             UI_Tick[i].transform.SetParent(gameObject.transform);
+            UI_Tick[i].transform.localScale = new Vector3(score_scale, score_scale, score_scale);
             UI_Tick[i].SetActive(false);
         }
 
