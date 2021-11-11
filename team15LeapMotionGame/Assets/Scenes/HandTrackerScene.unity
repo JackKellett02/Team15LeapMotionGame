@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -534,6 +534,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballController: {fileID: 653447410}
+--- !u!1 &303035352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 127730, guid: c8515ebee271c0649b9db1321f3026a4, type: 3}
+  m_PrefabInstance: {fileID: 678487715}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &320940790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -669,7 +674,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 653447410, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
   m_PrefabInstance: {fileID: 372695436}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1918507194}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60afaf3648b35e140bc21b75ba54b860, type: 3}
@@ -1498,7 +1503,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11406422, guid: c8515ebee271c0649b9db1321f3026a4, type: 3}
   m_PrefabInstance: {fileID: 678487715}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1817196631}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ea79be653ce14db8969d7225d95ec6c, type: 3}
@@ -1646,6 +1651,7 @@ MonoBehaviour:
   UICrossPrefab: {fileID: 3286474444412333246, guid: c55ea0931a01b5d48a8906f689517dbf, type: 3}
   UITickPrefab: {fileID: 2955537040893414684, guid: c0bd98070d8008e4d9b3ed07a0e6e82e, type: 3}
   m_shotsMax: 5
+  score_scale: 1
 --- !u!222 &1244528431
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2693,6 +2699,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1817196631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 166188, guid: c8515ebee271c0649b9db1321f3026a4, type: 3}
+  m_PrefabInstance: {fileID: 678487715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1817196632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817196631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecdf4f530f013741be64e15ab50cf0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexBone: {fileID: 303035352}
+  thumbBone: {fileID: 2046646137}
+  football: {fileID: 1918507194}
+  fingerDistance: 0.1
+  handObject: {fileID: 1817196631}
+  force: 10
 --- !u!1 &1914427626 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 121614, guid: 23f2cce114628a448bfeaae171b4c0c0, type: 3}
@@ -2724,6 +2753,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
+--- !u!1 &1918507194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8383878012399313708, guid: 5a4aedfcca31a0640ad08f94ecae7065, type: 3}
+  m_PrefabInstance: {fileID: 372695436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1944805179 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11407378, guid: 39d18871c11b53c4082d8202e3db68a3, type: 3}
@@ -2919,3 +2953,8 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &2046646137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199026, guid: c8515ebee271c0649b9db1321f3026a4, type: 3}
+  m_PrefabInstance: {fileID: 678487715}
+  m_PrefabAsset: {fileID: 0}
