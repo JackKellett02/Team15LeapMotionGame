@@ -9,8 +9,17 @@ public class footballSpawnerScript : MonoBehaviour {
 	//[SerializeField]
 	//GameObject Spawner;
 	private static bool isReset = false;
+	private static bool playAgain = false;
 
 	// Update is called once per frame
+	void Start()
+	{
+		if (playAgain)
+		{
+			ballController.gameObject.SetActive(true);
+			playAgain = false;
+		}
+	}
 	void Update() {
 		if (isReset) {
 			ballController.gameObject.SetActive(false);
@@ -23,6 +32,7 @@ public class footballSpawnerScript : MonoBehaviour {
 
 		} else {
 			isReset = false;
+			playAgain = true;
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
 
