@@ -13,7 +13,7 @@ public class GoalScript : MonoBehaviour {
 	BallForce ballController;
 	#region Private Functions.
 	private void OnTriggerEnter(Collider other) {
-		if(other.tag == "Football") {
+		if (other.tag == "Football") {
 			//Add to the score.
 			Debug.Log("Goal Scored.");
 			ScoreScript scoreScript = GameObject.FindGameObjectsWithTag("ScoreObject")[0].GetComponent<ScoreScript>();
@@ -25,6 +25,7 @@ public class GoalScript : MonoBehaviour {
 			Rigidbody temp = ballController.gameObject.GetComponent<Rigidbody>();
 			temp.velocity = Vector3.zero;
 			temp.angularVelocity = Vector3.zero;
+
 		}
 	}
 	#endregion

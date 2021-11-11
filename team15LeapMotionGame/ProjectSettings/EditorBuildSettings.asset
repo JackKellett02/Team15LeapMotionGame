@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/JackKTestScene.unity
+    guid: 557c916232e174e43975ceffd4c2ad1c
   m_configObjects: {}

@@ -60,8 +60,8 @@ public class ScoreScript : MonoBehaviour
         m_shots++;
         m_goalsScored++;
 
-        UI_Cross[m_shots].SetActive(false);
-        UI_Tick[m_shots].SetActive(true);
+        UI_Cross[m_shots - 1].SetActive(false);
+        UI_Tick[m_shots - 1].SetActive(true);
 
     }
 
@@ -72,8 +72,8 @@ public class ScoreScript : MonoBehaviour
     {
         m_shots++;
 
-        UI_Cross[m_shots].SetActive(true);
-        UI_Tick[m_shots].SetActive(false);
+        UI_Cross[m_shots - 1].SetActive(true);
+        UI_Tick[m_shots - 1].SetActive(false);
 
     }
 
@@ -132,6 +132,9 @@ public class ScoreScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+	    if (m_shots >= m_shotsMax)
+	    {
+            footballSpawnerScript.AllowReset();
+	    }
     }
 }
