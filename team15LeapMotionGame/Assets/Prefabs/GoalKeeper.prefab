@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1139446069274761658}
   - component: {fileID: 5980861084753232035}
   - component: {fileID: 7185534020897745548}
+  - component: {fileID: 1333802618764798956}
+  - component: {fileID: 9073461880968729353}
   m_Layer: 0
   m_Name: GoalKeeper
   m_TagString: Untagged
@@ -113,3 +115,29 @@ MonoBehaviour:
   startPos: {fileID: 0}
   endPos: {fileID: 0}
   speed: 2
+--- !u!136 &1333802618764798956
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630252973201181246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 2.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9073461880968729353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630252973201181246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a008ea206afb4c24db317c9256ae118f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
