@@ -26,6 +26,7 @@ public class goalMover : MonoBehaviour
         if(other.tag == "Football")
         {
             Vector3 position = new Vector3(Random.Range(-1.687f, 1.021f), Random.Range(-0.535f, 0.07f), startPos.z);
+            transform.position = position;
         }
     }
 
