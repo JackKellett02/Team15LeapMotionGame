@@ -9,6 +9,8 @@ public class fingerForce : MonoBehaviour {
 	[SerializeField]
 	private float force = 10.0f;
 	[SerializeField]
+	private float upForceMultipler = 1.0f;
+	[SerializeField]
 	private GameObject handGameObject = null;
 	[SerializeField]
 	private float maxBallDistance = 1.0f;
@@ -36,14 +38,14 @@ public class fingerForce : MonoBehaviour {
 		float distance = CalculateBoneDistance();
 		float balldistance = CalculateBallDistance();
 		if (lastFingerDistance <= minFingerDistance) {
-			Debug.Log("Last finger distance was less than the min finger distance.");
-			Debug.Log("Ball Distance: " + balldistance);
+			//Debug.Log("Last finger distance was less than the min finger distance.");
+			//Debug.Log("Ball Distance: " + balldistance);
 			if (balldistance <= maxBallDistance) {
-				Debug.Log("The ball distance was less than the max ball distance.");
+				//Debug.Log("The ball distance was less than the max ball distance.");
 				//Debug.Log("Finger Distance: " + distance);
 				if (distance > lastFingerDistance && distance > minFingerDistance) {
 					Vector3 dirToFootball = football.gameObject.transform.position - handGameObject.transform.position;
-					//dirToFootball.y += 0.25f;
+					dirToFootball.y += GetYDirForce();
 					dirToFootball.Normalize();
 					dirToFootball = dirToFootball * force;
 					Rigidbody rigidbody = football.gameObject.GetComponent<Rigidbody>();
@@ -62,6 +64,20 @@ public class fingerForce : MonoBehaviour {
 
 	private float CalculateBallDistance() {
 		return (football.transform.position - handGameObject.transform.position).magnitude;
+	}
+
+	private float GetYDirForce()
+	{
+		Vector3 rotationVector3 = handGameObject.transform.eulerAngles;
+		if (rotationVector3.x > 100.0f)
+		{
+			float xTemp = 360 - rotationVector3.x;
+			rotationVector3.x = 0.0f - xTemp;
+		}
+		float temp = (rotationVector3.x / 100.0f) * upForceMultipler;
+		Debug.Log("X Rotation: " + rotationVector3.x);
+		Debug.Log("Ammount to go up: " + temp);
+		return temp;
 	}
 	#endregion
 
