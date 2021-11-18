@@ -17,7 +17,7 @@ public class fingerForce : MonoBehaviour {
 	[SerializeField]
 	GameObject thumbBone;
 	[SerializeField]
-	float fingerDistance = 0.01f;
+	float minFingerDistance = 0.03f;
 	#endregion
 
 	#region Private variable declarations.
@@ -35,20 +35,23 @@ public class fingerForce : MonoBehaviour {
 	void Update() {
 		float distance = CalculateBoneDistance();
 		float balldistance = CalculateBallDistance();
-		Debug.Log("Finger Distance: " + distance);
-		Debug.Log("Ball Distance: " + balldistance);
-		//if (lastFingerDistance <= fingerDistance) {
-		//	if (balldistance <= maxBallDistance) {
-		//		if (distance > lastFingerDistance) {
-		//			Vector3 dirToFootball = football.gameObject.transform.position - gameObject.transform.position;
-		//			dirToFootball.Normalize();
-		//			dirToFootball = dirToFootball * force;
-		//			Rigidbody rigidbody = football.gameObject.GetComponent<Rigidbody>();
-		//			rigidbody.AddForce(dirToFootball, ForceMode.Impulse);
-		//			Debug.Log("Flicked! space between fingers was: " + distance);
-		//		}
-		//	}
-		//}
+		if (lastFingerDistance <= minFingerDistance) {
+			Debug.Log("Last finger distance was less than the min finger distance.");
+			Debug.Log("Ball Distance: " + balldistance);
+			if (balldistance <= maxBallDistance) {
+				Debug.Log("The ball distance was less than the max ball distance.");
+				//Debug.Log("Finger Distance: " + distance);
+				if (distance > lastFingerDistance && distance > minFingerDistance) {
+					Vector3 dirToFootball = football.gameObject.transform.position - handGameObject.transform.position;
+					//dirToFootball.y += 0.25f;
+					dirToFootball.Normalize();
+					dirToFootball = dirToFootball * force;
+					Rigidbody rigidbody = football.gameObject.GetComponent<Rigidbody>();
+					rigidbody.AddForce(dirToFootball, ForceMode.Impulse);
+					Debug.Log("Flicked! space between fingers was: " + distance);
+				}
+			}
+		}
 
 		lastFingerDistance = distance;
 	}
