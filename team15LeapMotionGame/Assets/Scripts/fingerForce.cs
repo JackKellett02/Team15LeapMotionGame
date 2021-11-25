@@ -25,12 +25,17 @@ public class fingerForce : MonoBehaviour {
 	#region Private variable declarations.
 
 	private float lastFingerDistance = float.MaxValue;
+	private static Vector3 forceVector3 = Vector3.zero;
+	private static Vector3 startingVelApprox = Vector3.zero;
+	private static bool showProjection = false;
 	#endregion
 
 	#region Private Functions.
 	// Start is called before the first frame update
 	void Start() {
-
+		forceVector3 = Vector3.zero;
+		startingVelApprox = Vector3.zero;
+		showProjection = false;
 	}
 
 	// Update is called once per frame
@@ -43,19 +48,37 @@ public class fingerForce : MonoBehaviour {
 			if (balldistance <= maxBallDistance) {
 				//Debug.Log("The ball distance was less than the max ball distance.");
 				//Debug.Log("Finger Distance: " + distance);
+				CalculateForceVector3();
+				CalculateVelocityVector3();
+				showProjection = true;
 				if (distance > lastFingerDistance && distance > minFingerDistance) {
-					Vector3 dirToFootball = football.gameObject.transform.position - handGameObject.transform.position;
-					dirToFootball.y += GetYDirForce();
-					dirToFootball.Normalize();
-					dirToFootball = dirToFootball * force;
 					Rigidbody rigidbody = football.gameObject.GetComponent<Rigidbody>();
-					rigidbody.AddForce(dirToFootball, ForceMode.Impulse);
+					rigidbody.velocity = forceVector3;
 					Debug.Log("Flicked! space between fingers was: " + distance);
 				}
+			} else {
+				showProjection = false;
 			}
+		} else {
+			showProjection = false;
 		}
 
 		lastFingerDistance = distance;
+	}
+
+	private void CalculateForceVector3() {
+		Vector3 dirToFootball = football.gameObject.transform.position - handGameObject.transform.position;
+		dirToFootball.y += GetYDirForce();
+		dirToFootball.Normalize();
+		dirToFootball = dirToFootball * force;
+		forceVector3 = dirToFootball;
+	}
+
+	private void CalculateVelocityVector3() {
+		Vector3 force = forceVector3;
+		//force.y -= 9.81f;
+
+		startingVelApprox = 0.5f * (force * Time.deltaTime);
 	}
 
 	private float CalculateBoneDistance() {
@@ -66,11 +89,9 @@ public class fingerForce : MonoBehaviour {
 		return (football.transform.position - handGameObject.transform.position).magnitude;
 	}
 
-	private float GetYDirForce()
-	{
+	private float GetYDirForce() {
 		Vector3 rotationVector3 = handGameObject.transform.eulerAngles;
-		if (rotationVector3.x > 100.0f)
-		{
+		if (rotationVector3.x > 100.0f) {
 			float xTemp = 360 - rotationVector3.x;
 			rotationVector3.x = 0.0f - xTemp;
 		}
@@ -83,5 +104,16 @@ public class fingerForce : MonoBehaviour {
 
 	#region Public Access Functions(Getters and Setters).
 
+	public static Vector3 GetForceVector3() {
+		return forceVector3;
+	}
+
+	public static Vector3 GetStartingVelocity() {
+		return startingVelApprox;
+	}
+
+	public static bool GetProjectionState() {
+		return showProjection;
+	}
 	#endregion
 }
