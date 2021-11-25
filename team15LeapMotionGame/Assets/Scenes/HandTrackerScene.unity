@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -214,8 +214,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44150708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: -0.94, z: 2.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.8, y: -0.94, z: 7.56}
+  m_LocalScale: {x: 1, y: 1, z: 2.5843918}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -308,6 +308,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.03, z: 0.08}
   m_Center: {x: 0, y: 0, z: -0.005}
+--- !u!1 &162833810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6504130245739450503, guid: 36384e7f8c9467042a5ad50639b563c7, type: 3}
+  m_PrefabInstance: {fileID: 748538931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166594071
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,12 +504,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181866724}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.021, y: -0.535, z: 4.948}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0.008118267, y: -0.7070602, z: -0.7070602, w: 0.008118267}
+  m_LocalPosition: {x: -81.3, y: -20.8, z: 28}
+  m_LocalScale: {x: 5.888182, y: 5.888184, z: 5.8881855}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 673710900}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &181866729
 MonoBehaviour:
@@ -518,6 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c8d93fb3b3c8f439d3f1bcb9fd76f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoalObject: {fileID: 162833810}
+  goalMovement: 2
 --- !u!114 &181866730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,6 +867,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60afaf3648b35e140bc21b75ba54b860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &673710900 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6059563725598994532, guid: 36384e7f8c9467042a5ad50639b563c7, type: 3}
+  m_PrefabInstance: {fileID: 748538931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &678487715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1631,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6059563725598994532, guid: 36384e7f8c9467042a5ad50639b563c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.34
+      value: 5.39
       objectReference: {fileID: 0}
     - target: {fileID: 6059563725598994532, guid: 36384e7f8c9467042a5ad50639b563c7, type: 3}
       propertyPath: m_LocalRotation.w
