@@ -15,7 +15,12 @@ using UnityEngine.UI;
 /// </summary>
 public class MenuManager : MonoBehaviour
 {
+    //script references 
+    SettingsMenu settingsMenuScript;
 
+    //object references 
+    [SerializeField]
+    GameObject settingsObject;
     [Header("Menus")]
     [SerializeField]
     GameObject m_mainMenu = null;
@@ -26,6 +31,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     GameObject m_pause = null;
 
+    //
     [Header("UI start on main menu")]
     [SerializeField]
     bool UIStartMain = true;
@@ -51,7 +57,9 @@ public class MenuManager : MonoBehaviour
         {
             MenuInGame();
         }
-       
+
+        settingsMenuScript = settingsObject.GetComponent<SettingsMenu>();
+
     }
 
     // Update is called once per frame
@@ -112,6 +120,7 @@ public class MenuManager : MonoBehaviour
     public void MenuSettings()
     {
         UpdateMenu(Menu.SETTINGS);
+        settingsMenuScript.DisplayControlPage();
     }
 
     /// <summary>

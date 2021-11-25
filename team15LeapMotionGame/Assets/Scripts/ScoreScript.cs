@@ -97,27 +97,36 @@ public class ScoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         UI_FootBall = new GameObject[m_shotsMax];
         UI_Cross = new GameObject[m_shotsMax];
         UI_Tick = new GameObject[m_shotsMax];
+
+        //get ball prefabs width - creates gets destroys - not great method
+        //GameObject ballPrefab = Instantiate(UIfootballPrefab);
+        //ballPrefab.transform.localScale = new Vector3(score_scale, score_scale, score_scale);
+        //RectTransform rtBall = (RectTransform)UIfootballPrefab.transform;
+        //float ballWidth = rtBall.rect.width;
+        //Destroy(ballPrefab);
+
+
+        Vector3 UI_ScaleVector = new Vector3(score_scale, score_scale, score_scale);
 
         //Instantiate all of the score ui elements
         for (int i = 0; i < m_shotsMax; i++)
         {
             UI_FootBall[i] = Instantiate(UIfootballPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
             UI_FootBall[i].transform.SetParent(gameObject.transform);
-            UI_FootBall[i].transform.localScale = new Vector3(score_scale, score_scale, score_scale);
+            UI_FootBall[i].transform.localScale = UI_ScaleVector;
             UI_FootBall[i].SetActive(false);
 
             UI_Cross[i] = Instantiate(UICrossPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
             UI_Cross[i].transform.SetParent(gameObject.transform);
-            UI_Cross[i].transform.localScale = new Vector3(score_scale, score_scale, score_scale);
+            UI_Cross[i].transform.localScale = UI_ScaleVector;
             UI_Cross[i].SetActive(false);
 
             UI_Tick[i] = Instantiate(UITickPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
             UI_Tick[i].transform.SetParent(gameObject.transform);
-            UI_Tick[i].transform.localScale = new Vector3(score_scale, score_scale, score_scale);
+            UI_Tick[i].transform.localScale = UI_ScaleVector;
             UI_Tick[i].SetActive(false);
         }
 
