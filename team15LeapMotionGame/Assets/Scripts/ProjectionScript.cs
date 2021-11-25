@@ -21,7 +21,7 @@ public class ProjectionScript : MonoBehaviour {
 	#region Private Functions.
 	// Start is called before the first frame update
 	void Start() {
-
+		lineRenderer.gameObject.SetActive(false);
 	}
 
 	// Update is called once per frame
