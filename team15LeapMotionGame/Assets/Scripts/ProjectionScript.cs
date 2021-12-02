@@ -27,14 +27,23 @@ public class ProjectionScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (fingerForce.GetProjectionState()) {
+			if (fingerForce.GetFireState()) {
+				lineRenderer.startColor = Color.green;
+				lineRenderer.endColor = Color.green;
+			} else {
+				lineRenderer.startColor = Color.red;
+				lineRenderer.endColor = Color.red;
+			}
 			lineRenderer.gameObject.SetActive(true);
 			lineRenderer.positionCount = numPoints;
 			List<Vector3> points = new List<Vector3>();
 			Vector3 startingPosition = gameObject.transform.position;
 			Vector3 startingVelocity = fingerForce.GetForceVector3();
 			for (float t = 0.0f; t < numPoints; t += timeBetweenPoints) {
-				Vector3 newPoint = startingPosition + t * startingVelocity;
-				newPoint.y = startingPosition.y + startingVelocity.y * t + (Physics.gravity.y / 2) * t * t;
+				Vector3 newPoint = startingPosition;
+				newPoint.x += startingVelocity.x * t;
+				newPoint.z += startingVelocity.z * t;
+				newPoint.y += startingVelocity.y * t + ((0.5f * (Physics.gravity.y) * (t * t)));
 				points.Add(newPoint);
 			}
 			lineRenderer.SetPositions(points.ToArray());

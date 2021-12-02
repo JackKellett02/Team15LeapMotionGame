@@ -28,6 +28,7 @@ public class fingerForce : MonoBehaviour {
 	private static Vector3 forceVector3 = Vector3.zero;
 	private static Vector3 startingVelApprox = Vector3.zero;
 	private static bool showProjection = false;
+	private static bool canFire = false;
 	#endregion
 
 	#region Private Functions.
@@ -36,6 +37,7 @@ public class fingerForce : MonoBehaviour {
 		forceVector3 = Vector3.zero;
 		startingVelApprox = Vector3.zero;
 		showProjection = false;
+		canFire = false;
 	}
 
 	// Update is called once per frame
@@ -45,17 +47,21 @@ public class fingerForce : MonoBehaviour {
 		if (lastFingerDistance <= minFingerDistance) {
 			//Debug.Log("Last finger distance was less than the min finger distance.");
 			//Debug.Log("Ball Distance: " + balldistance);
+			CalculateForceVector3();
+			CalculateVelocityVector3();
 			if (balldistance <= maxBallDistance) {
 				//Debug.Log("The ball distance was less than the max ball distance.");
 				//Debug.Log("Finger Distance: " + distance);
-				CalculateForceVector3();
-				CalculateVelocityVector3();
 				showProjection = true;
+				canFire = true;
 				if (distance > lastFingerDistance && distance > minFingerDistance) {
 					Rigidbody rigidbody = football.gameObject.GetComponent<Rigidbody>();
 					rigidbody.velocity = forceVector3;
 					Debug.Log("Flicked! space between fingers was: " + distance);
 				}
+			} else if (balldistance <= (maxBallDistance * 2)) {
+				showProjection = true;
+				canFire = false;
 			} else {
 				showProjection = false;
 			}
@@ -114,6 +120,10 @@ public class fingerForce : MonoBehaviour {
 
 	public static bool GetProjectionState() {
 		return showProjection;
+	}
+
+	public static bool GetFireState() {
+		return canFire;
 	}
 	#endregion
 }
