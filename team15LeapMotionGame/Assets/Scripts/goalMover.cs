@@ -16,10 +16,12 @@ public class goalMover : MonoBehaviour {
 	float goalMovement = 2.0f;
 
 
+	private float difference = 0.0f;
 
 
 	private void Start() {
 		startPos = transform.position;
+		difference = transform.position.z - GoalObject.transform.position.z;
 	}
 
 	private void OnTriggerEnter(Collider other) {
@@ -30,7 +32,7 @@ public class goalMover : MonoBehaviour {
 			goalPos.z += goalMovement * counter;
 			GoalObject.transform.position = goalPos;
 
-			Vector3 position = new Vector3(Random.Range(-1.687f, 1.021f), Random.Range(-0.535f, 0.07f), goalPos.z);
+			Vector3 position = new Vector3(Random.Range(-1.687f, 1.021f), Random.Range(-0.535f, 0.07f), goalPos.z + difference);
 			transform.position = position;
 
 
