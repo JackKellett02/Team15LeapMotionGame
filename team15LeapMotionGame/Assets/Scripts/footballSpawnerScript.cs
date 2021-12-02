@@ -12,38 +12,17 @@ public class footballSpawnerScript : MonoBehaviour {
 	private static bool playAgain = false;
 
 	// Update is called once per frame
-	void Start()
-	{
-		if (playAgain)
-		{
-			ballController.gameObject.SetActive(true);
-			playAgain = false;
-		}
+	void Start() {
+		ballController.gameObject.SetActive(true);
 	}
+
 	void Update() {
-		if (isReset) {
-			ballController.gameObject.SetActive(false);
-		}
+
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if (!isReset) {
-			ballController.gameObject.SetActive(true);
+		ballController.gameObject.SetActive(true);
+		gameObject.SetActive(false);
 
-		} else {
-			isReset = false;
-			playAgain = true;
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		}
-
-	}
-
-	public static void AllowReset() {
-		isReset = true;
-		Debug.Log("Now able to reset.");
-	}
-
-	public static bool GetIsReset() {
-		return isReset;
 	}
 }
