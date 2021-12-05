@@ -1,0 +1,24 @@
+When making the typography, I used these effects on Photoshop - feel free to use these (if you like the style) or work with what you want to
+
+FONT: Showcard Gothic
+
+Text Effects:
+
+Colour Overlay: #ffd200
+
+Stroke:
+	2px
+	white #FFFFFF
+
+Inner Glow:
+	Opacity 100
+	Colour: White #FFFFFF
+	Size: 8
+	Range: 50%
+
+Drop Shadow:
+	Opacity: 89
+	Distance: 0
+	Spread: 27
+	Size: 8
+	

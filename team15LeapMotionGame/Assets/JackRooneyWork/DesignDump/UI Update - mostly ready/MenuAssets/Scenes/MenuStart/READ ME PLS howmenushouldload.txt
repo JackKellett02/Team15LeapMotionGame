@@ -1,0 +1,8 @@
+When loading the start menu:
+
+
+Display the Logo first,
+(2 secs later)
+then have the text fade in at the top,
+(2 secs later)
+then add the start button fading on and off screen pulsing
