@@ -28,8 +28,8 @@ public class GoalKeeperScript : MonoBehaviour {
 	#region Private Functions.
 	// Start is called before the first frame update
 	void Start() {
-		gameObject.transform.position = startPos.position;
-		targetPos = endPos.position;
+		gameObject.transform.localPosition = startPos.localPosition;
+		targetPos = endPos.localPosition;
 	}
 
 	// Update is called once per frame
@@ -40,7 +40,7 @@ public class GoalKeeperScript : MonoBehaviour {
 	}
 
 	private float CalculateDistanceToTarget() {
-		float dist = (targetPos - gameObject.transform.position).magnitude;
+		float dist = (targetPos - gameObject.transform.localPosition).magnitude;
 		return dist;
 	}
 
@@ -51,16 +51,15 @@ public class GoalKeeperScript : MonoBehaviour {
 	}
 
 	private void MoveTowardsTarget() {
-		Vector3 dir = targetPos - gameObject.transform.position;
-		transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+		Vector3 dir = targetPos - gameObject.transform.localPosition;
+		transform.Translate(dir.normalized * speed * Time.deltaTime, Space.Self);
 	}
 
 	private void SwitchTargetPos() {
-		Debug.Log("Switching Target Pos");
-		if (targetPos == endPos.position) {
-			targetPos = startPos.position;
-		} else if (targetPos == startPos.position) {
-			targetPos = endPos.position;
+		if (targetPos == endPos.localPosition) {
+			targetPos = startPos.localPosition;
+		} else if (targetPos == startPos.localPosition) {
+			targetPos = endPos.localPosition;
 		}
 	}
 	#endregion
