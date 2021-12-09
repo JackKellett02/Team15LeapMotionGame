@@ -1,0 +1,14 @@
+Game Mechanic Ideas:
+
+Precision shot – challenge of hitting ball into a target that gets gradually smaller/moves faster 
+
+Difficulty modifier of defender players working with the goal keeper to reduce the safe area you can shoot
+
+Hold down flick to charge a more powerful shot
+
+Arcing shots with the linetrace 
+
+Time attack – no ball limit, score as many times as possible in the time limit 
+
+
+
