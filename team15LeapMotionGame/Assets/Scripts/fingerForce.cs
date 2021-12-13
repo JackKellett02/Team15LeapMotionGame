@@ -24,6 +24,7 @@ public class fingerForce : MonoBehaviour {
 
 	#region Private variable declarations.
 
+	private AudioManagerScript audioManager;
 	private float lastFingerDistance = float.MaxValue;
 	private static Vector3 forceVector3 = Vector3.zero;
 	private static Vector3 startingVelApprox = Vector3.zero;
@@ -34,6 +35,7 @@ public class fingerForce : MonoBehaviour {
 	#region Private Functions.
 	// Start is called before the first frame update
 	void Start() {
+		audioManager = GameObject.FindGameObjectsWithTag("AudioManager")[0].GetComponent<AudioManagerScript>();
 		forceVector3 = Vector3.zero;
 		startingVelApprox = Vector3.zero;
 		showProjection = false;
@@ -57,7 +59,7 @@ public class fingerForce : MonoBehaviour {
 				if (distance > lastFingerDistance && distance > minFingerDistance) {
 					Rigidbody rigidbody = football.gameObject.GetComponent<Rigidbody>();
 					rigidbody.velocity = forceVector3;
-					Debug.Log("Flicked! space between fingers was: " + distance);
+					audioManager.PlayKickBallSound(false);
 				}
 			} else if (balldistance <= (maxBallDistance * 2)) {
 				showProjection = true;
@@ -102,8 +104,6 @@ public class fingerForce : MonoBehaviour {
 			rotationVector3.x = 0.0f - xTemp;
 		}
 		float temp = (rotationVector3.x / 100.0f) * upForceMultipler;
-		Debug.Log("X Rotation: " + rotationVector3.x);
-		Debug.Log("Ammount to go up: " + temp);
 		return temp;
 	}
 	#endregion

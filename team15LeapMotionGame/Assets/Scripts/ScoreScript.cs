@@ -43,6 +43,9 @@ public class ScoreScript : MonoBehaviour {
 	private GameObject[] UI_Cross;
 
 	private bool allowReset = true;
+
+	private AudioManagerScript audioManager;
+
 	//public
 	#region gets/sets
 
@@ -59,6 +62,10 @@ public class ScoreScript : MonoBehaviour {
 	/// update stored score and displayed score
 	/// </summary>
 	public void GoalScored() {
+		audioManager.StopInGameCrowdSound();
+		audioManager.StopGoalMissedSound();
+		audioManager.PlayGoalScoredSound(false);
+
 		m_shots++;
 		m_goalsScored++;
 
@@ -71,6 +78,9 @@ public class ScoreScript : MonoBehaviour {
 	/// 
 	/// </summary>
 	public void GoalMissed() {
+		audioManager.StopInGameCrowdSound();
+		audioManager.StopGoalScoredSound();
+		audioManager.PlayGoalMissedSound(false);
 		m_shots++;
 
 		UI_Cross[m_shots - 1].SetActive(true);
@@ -94,6 +104,8 @@ public class ScoreScript : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
+		audioManager = GameObject.FindGameObjectsWithTag("AudioManager")[0].GetComponent<AudioManagerScript>();
+
 		UI_FootBall = new GameObject[m_shotsMax];
 		UI_Cross = new GameObject[m_shotsMax];
 		UI_Tick = new GameObject[m_shotsMax];

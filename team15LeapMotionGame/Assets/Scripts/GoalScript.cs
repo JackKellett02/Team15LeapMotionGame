@@ -9,11 +9,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GoalScript : MonoBehaviour {
-	[SerializeField]
 	BallForce ballController;
 	#region Private Functions.
+
 	private void OnTriggerEnter(Collider other) {
-		if (other.tag == "Football") {
+		if (other.tag == "Football")
+		{
+			ballController = other.gameObject.GetComponent<BallForce>();
 			//Add to the score.
 			Debug.Log("Goal Scored.");
 			ScoreScript scoreScript = GameObject.FindGameObjectsWithTag("ScoreObject")[0].GetComponent<ScoreScript>();

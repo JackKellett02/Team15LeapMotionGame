@@ -14,6 +14,7 @@ public class footballSpawnerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Start() {
 		ballController.gameObject.SetActive(true);
+		GameObject.FindGameObjectsWithTag("AudioManager")[0].GetComponent<AudioManagerScript>().PlayInGameCrowdSound(true);
 	}
 
 	void Update() {

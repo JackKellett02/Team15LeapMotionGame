@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UI-Chris.unity
-    guid: 9e70b7cca8def934baef92c90e9edcfa
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: a9e5674198f2e9a4882b72eebe76e6fe
   - enabled: 1
     path: Assets/Scenes/HandTrackerScene.unity
     guid: c8057bb67ff26924aba0952224ae716f

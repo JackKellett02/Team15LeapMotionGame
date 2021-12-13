@@ -8,6 +8,7 @@ TagManager:
   - Goal
   - RightHand
   - ScoreObject
+  - AudioManager
   layers:
   - Default
   - TransparentFX

@@ -43,7 +43,7 @@ public class ProjectionScript : MonoBehaviour {
 				Vector3 newPoint = startingPosition;
 				newPoint.x += startingVelocity.x * t;
 				newPoint.z += startingVelocity.z * t;
-				newPoint.y += startingVelocity.y * t + ((0.5f * (Physics.gravity.y) * (t * t)));
+				newPoint.y += (startingVelocity.y * t + ((0.5f * (Physics.gravity.y) * (t * t)))) * 0.75f;
 				points.Add(newPoint);
 			}
 			lineRenderer.SetPositions(points.ToArray());
