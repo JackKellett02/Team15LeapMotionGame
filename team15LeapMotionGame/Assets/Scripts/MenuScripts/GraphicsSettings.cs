@@ -23,7 +23,7 @@ public class GraphicsSettings : MonoBehaviour
     [SerializeField]
     Toggle VSyncToggle;
 
-    int targetFramerate= 30;
+    int targetFramerate= 60;
 
     void Awake()
     {

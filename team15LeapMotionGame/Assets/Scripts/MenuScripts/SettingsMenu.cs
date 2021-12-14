@@ -25,7 +25,7 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        DisplayControlPage();
+        DisplayGraphicsPage();
     }
 
 

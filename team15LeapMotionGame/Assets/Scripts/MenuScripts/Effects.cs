@@ -13,6 +13,10 @@ using UnityEngine;
 /// </summary>
 public class Effects : MonoBehaviour
 {
+	private void Start()
+	{
+        DontDestroyOnLoad(this.gameObject);
+	}
 
     //each colourblind mode possible
     public enum ColorBlindMode
