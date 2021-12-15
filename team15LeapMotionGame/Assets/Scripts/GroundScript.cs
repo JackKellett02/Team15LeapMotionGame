@@ -10,9 +10,9 @@ using UnityEngine;
 
 public class GroundScript : MonoBehaviour {
 
-	[SerializeField]
 	BallForce ballController;
 	#region Private Functions.
+
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Football") {
 			//Add to the miss counter.
@@ -22,6 +22,7 @@ public class GroundScript : MonoBehaviour {
 
 			//Delete the football.
 			//Destroy(other.gameObject);
+			ballController = other.gameObject.GetComponent<BallForce>();
 			ballController.gameObject.transform.position = ballController.startPos;
 			Rigidbody temp = ballController.gameObject.GetComponent<Rigidbody>();
 			temp.velocity = Vector3.zero;

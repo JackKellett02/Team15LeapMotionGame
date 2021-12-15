@@ -56,7 +56,7 @@ public class fingerForce : MonoBehaviour {
 	void Update() {
 		float distance = CalculateBoneDistance();
 		float balldistance = CalculateBallDistance();
-		if (lastFingerDistance <= minFingerDistance) {
+		if (lastFingerDistance <= minFingerDistance && (GameObject.FindGameObjectsWithTag("Football")[0].active)) {
 			//Debug.Log("Last finger distance was less than the min finger distance.");
 			//Debug.Log("Ball Distance: " + balldistance);
 			CalculateForceVector3();

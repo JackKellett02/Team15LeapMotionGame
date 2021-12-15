@@ -44,6 +44,9 @@ public class AudioManagerScript : MonoBehaviour {
 	[SerializeField]
 	private GameObject playWhistle = null;
 
+	[SerializeField]
+	private GameObject partyPopper = null;
+
 	#endregion
 
 	#region Private Variable Declarations.
@@ -189,6 +192,18 @@ public class AudioManagerScript : MonoBehaviour {
 		playWhistle.SetActive(false);
 	}
 
+	public void PlayPartyPopperSound(bool looped)
+	{
+		partyPopper.SetActive(false);
+		partyPopper.SetActive(true);
+		partyPopper.GetComponent<AudioSource>().loop = looped;
+	}
+
+	public void StopPartyPopperSound()
+	{
+		partyPopper.SetActive(false);
+	}
+
 	public void StopAllSounds() {
 		StopGoalMissedSound();
 		StopGoalPostCollisionSound();
@@ -201,6 +216,7 @@ public class AudioManagerScript : MonoBehaviour {
 		StopLoopingPauseMusicSound();
 		StopPauseWhistleSound();
 		StopPlayWhistleSound();
+		StopPartyPopperSound();
 	}
 	#endregion
 }

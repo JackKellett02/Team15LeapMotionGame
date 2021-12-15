@@ -37,6 +37,7 @@ public class ScoreScript : MonoBehaviour {
 	//private
 	private int m_shots;
 	private int m_goalsScored;
+	private static bool hasWon = false;
 
 	private GameObject[] UI_FootBall;
 	private GameObject[] UI_Tick;
@@ -104,6 +105,7 @@ public class ScoreScript : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
+		hasWon = false;
 		audioManager = GameObject.FindGameObjectsWithTag("AudioManager")[0].GetComponent<AudioManagerScript>();
 
 		UI_FootBall = new GameObject[m_shotsMax];
@@ -122,17 +124,17 @@ public class ScoreScript : MonoBehaviour {
 
 		//Instantiate all of the score ui elements
 		for (int i = 0; i < m_shotsMax; i++) {
-			UI_FootBall[i] = Instantiate(UIfootballPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
+			UI_FootBall[i] = Instantiate(UIfootballPrefab, new Vector3((((50 * score_scale) * 2) * (i * 1.5f)) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
 			UI_FootBall[i].transform.SetParent(gameObject.transform);
 			UI_FootBall[i].transform.localScale = UI_ScaleVector;
 			UI_FootBall[i].SetActive(false);
 
-			UI_Cross[i] = Instantiate(UICrossPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
+			UI_Cross[i] = Instantiate(UICrossPrefab, new Vector3((((50 * score_scale) * 2) * (i * 1.5f)) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
 			UI_Cross[i].transform.SetParent(gameObject.transform);
 			UI_Cross[i].transform.localScale = UI_ScaleVector;
 			UI_Cross[i].SetActive(false);
 
-			UI_Tick[i] = Instantiate(UITickPrefab, new Vector3((((50 * score_scale) * 2) * i) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
+			UI_Tick[i] = Instantiate(UITickPrefab, new Vector3((((50 * score_scale) * 2) * (i * 1.5f)) + (50 * score_scale), 50 * score_scale, 0), Quaternion.identity);
 			UI_Tick[i].transform.SetParent(gameObject.transform);
 			UI_Tick[i].transform.localScale = UI_ScaleVector;
 			UI_Tick[i].SetActive(false);
@@ -151,6 +153,7 @@ public class ScoreScript : MonoBehaviour {
 			//Reset levels.
 			if (allowReset) {
 				allowReset = false;
+				GameObject.FindGameObjectsWithTag("Football")[0].SetActive(false);
 				StartCoroutine("ResetTimer");
 			}
 		}
@@ -158,6 +161,19 @@ public class ScoreScript : MonoBehaviour {
 
 	private IEnumerator ResetTimer() {
 		yield return new WaitForSeconds(finishTime);
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		if (SceneManager.GetActiveScene().name == "TourneyModeScene") {
+			//If in the tournament mode bring us back to main menu.
+			if (m_goalsScored >= 3) {
+				hasWon = true;
+			}
+			SceneManager.LoadScene("MainMenuScene");
+		} else {
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+
+	}
+
+	public static bool GetHasWon() {
+		return hasWon;
 	}
 }

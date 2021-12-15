@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour {
 	#region Variables to assign via the unity inspector (SerializeFields).
-	[SerializeField]
 
 	#endregion
 
@@ -25,6 +24,9 @@ public class MainMenuScript : MonoBehaviour {
 	void Start() {
 		audioManager = GameObject.FindGameObjectsWithTag("AudioManager")[0].GetComponent<AudioManagerScript>();
 		audioManager.PlayLoopingMenuMusicSound(true);
+		if (ScoreScript.GetHasWon()) {
+			audioManager.PlayPartyPopperSound(false);
+		}
 	}
 
 	// Update is called once per frame
@@ -42,6 +44,10 @@ public class MainMenuScript : MonoBehaviour {
 
 	public void Begin(string scene) {
 		StartCoroutine(LoadGameScene(scene, 0.5f));
+	}
+
+	public void LongBegin(string scene) {
+		StartCoroutine(LoadGameScene(scene, 2.0f));
 	}
 
 	public void QuitGame() {
