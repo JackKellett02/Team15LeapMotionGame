@@ -15,6 +15,8 @@ public class goalMover : MonoBehaviour {
 	[SerializeField]
 	float goalMovement = 2.0f;
 
+	[SerializeField]
+	private bool chaosMode = false;
 
 	private float difference = 0.0f;
 
@@ -26,7 +28,13 @@ public class goalMover : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Football") {
-			counter++;
+			if (chaosMode) {
+				counter += Random.Range(-1, 1);
+				counter = Mathf.Clamp(counter, 1, 5);
+			} else {
+				counter++;
+			}
+
 
 			Vector3 goalPos = new Vector3(-0.37f, -0.181f, 5.39f);
 			goalPos.z += goalMovement * counter;

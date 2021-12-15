@@ -63,7 +63,6 @@ public class AudioManagerScript : MonoBehaviour {
 	}
 
 	private IEnumerator RestartIngameCrowd(float time) {
-		Debug.Log("Entered restart ingame crowd function.");
 		yield return new WaitForSeconds(time / 2.0f);
 		PlayInGameCrowdSound(true);
 	}

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: a9e5674198f2e9a4882b72eebe76e6fe
   - enabled: 1
-    path: Assets/Scenes/HandTrackerScene.unity
-    guid: c8057bb67ff26924aba0952224ae716f
+    path: Assets/Scenes/QuickPlayScene.unity
+    guid: 2530659abb84133429f5a36cdfc15a0e
+  - enabled: 1
+    path: Assets/Scenes/ChaosModeScene.unity
+    guid: 8dceba96ca1e2ce4996e920c5843640a
+  - enabled: 1
+    path: Assets/Scenes/TourneyModeScene.unity
+    guid: c5e33ed74621e98419def6c89db9b912
   m_configObjects: {}

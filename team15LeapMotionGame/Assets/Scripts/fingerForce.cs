@@ -6,20 +6,30 @@ public class fingerForce : MonoBehaviour {
 	#region Variables to apply via the unity inspector (SerializeFields).
 	[SerializeField]
 	GameObject football;
+
 	[SerializeField]
 	private float force = 10.0f;
+
 	[SerializeField]
 	private float upForceMultipler = 1.0f;
+
 	[SerializeField]
 	private GameObject handGameObject = null;
+
 	[SerializeField]
 	private float maxBallDistance = 1.0f;
+
 	[SerializeField]
 	GameObject indexBone;
+
 	[SerializeField]
 	GameObject thumbBone;
+
 	[SerializeField]
 	float minFingerDistance = 0.03f;
+
+	[SerializeField]
+	private bool chaosMode = false;
 	#endregion
 
 	#region Private variable declarations.
@@ -58,7 +68,11 @@ public class fingerForce : MonoBehaviour {
 				canFire = true;
 				if (distance > lastFingerDistance && distance > minFingerDistance) {
 					Rigidbody rigidbody = football.gameObject.GetComponent<Rigidbody>();
-					rigidbody.velocity = forceVector3;
+					Vector3 randAddition = Vector3.zero;
+					if (chaosMode) {
+						randAddition = new Vector3(Random.Range(-2.0f, 2.0f), Random.Range(-2.0f, 2.0f), Random.Range(-2.0f, 2.0f));
+					}
+					rigidbody.velocity = forceVector3 + randAddition;
 					audioManager.PlayKickBallSound(false);
 				}
 			} else if (balldistance <= (maxBallDistance * 2)) {

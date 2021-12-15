@@ -40,8 +40,8 @@ public class MainMenuScript : MonoBehaviour {
 
 	#region Public Access Functions (Getters and Setters).
 
-	public void QuickStartModeBegin() {
-		StartCoroutine(LoadGameScene("HandTrackerScene", 0.5f));
+	public void Begin(string scene) {
+		StartCoroutine(LoadGameScene(scene, 0.5f));
 	}
 
 	public void QuitGame() {

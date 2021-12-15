@@ -11,30 +11,23 @@ using UnityEngine;
 /// <summary>
 /// colour blind mode shader effect values 
 /// </summary>
-public class Effects : MonoBehaviour
-{
-	private void Start()
-	{
-        DontDestroyOnLoad(this.gameObject);
+public class Effects : MonoBehaviour {
+	//each colourblind mode possible
+	public enum ColorBlindMode {
+		Normal = 0,
+		Protanopia = 1,
+		Protanomaly = 2,
+		Deuteranopia = 3,
+		Deuteranomaly = 4,
+		Tritanopia = 5,
+		Tritanomaly = 6,
+		Achromatopsia = 7,
+		Achromatomaly = 8,
 	}
 
-    //each colourblind mode possible
-    public enum ColorBlindMode
-    {
-        Normal = 0,
-        Protanopia = 1,
-        Protanomaly = 2,
-        Deuteranopia = 3,
-        Deuteranomaly = 4,
-        Tritanopia = 5,
-        Tritanomaly = 6,
-        Achromatopsia = 7,
-        Achromatomaly = 8,
-    }
-
-    // rgb values for each colour blind mode
-    public Color[,] RGB = new Color[9,3] { 
-        { new Color(1,0,0), new Color(0,1,0), new Color(0,0,1) }, //normal
+	// rgb values for each colour blind mode
+	public Color[,] RGB = new Color[9, 3] {
+		{ new Color(1,0,0), new Color(0,1,0), new Color(0,0,1) }, //normal
         { new Color(0.567f,0.433f,0), new Color(0.558f,0.442f,0), new Color(0,0.242f,0.758f) }, //Protanopia
         { new Color(0.816f,0.184f,0), new Color(0.334f,0.666f,0), new Color(0,0.125f,0.875f) }, //Protanomaly
         { new Color(0.625f,0.375f,0), new Color(0,0.7f,0.3f), new Color(0,0.3f,0.7f) }, //Deuteranopia
