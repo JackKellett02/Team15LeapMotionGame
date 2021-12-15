@@ -49,6 +49,8 @@ ExportedObj/
 **.mdb.meta
 **.pkf.meta
 **.pkf
+**.max
+**.max.meta
 
 # Unity3D generated file on crash reports
 sysinfo.txt
