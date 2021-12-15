@@ -1,0 +1,18 @@
+How To Play
+
+Using the leap motion controller: 
+
+While in any of the gamemodes, the Leap Motion controller with track all of your hand movements.
+With your dominant hand (either left or right) as you move towards the ball, make a flicking gesture and move your hand to aim with the red line.
+Move your hand closer to the ball and the line will turn green, then flick with your finger to launch the ball!
+
+Gameplay Modes: 
+
+Quick Play: 
+The Default mode, quick to pick up and play: Touch the button with your hand to spawn the ball, the goal with move further away every time you score… try to score as many goals as you can by hitting the target, then press the button again to reset – Play as much as you like with no limit!
+
+Tourney Mode:
+Choose your team and the team you’re up against – try to score 3 or more goals to stay in the tournament – Make every shot count! 
+
+Chaos Mode: 
+The goal moves at random and shots are harder to aim… be sure to shoot carefully.
