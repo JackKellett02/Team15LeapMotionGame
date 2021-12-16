@@ -280,6 +280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeeperObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 5180273922017201723, guid: 2107963d77c76be40a1cfe93612c45ee, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2107963d77c76be40a1cfe93612c45ee, type: 3}
 --- !u!1 &106506782 stripped
@@ -2769,7 +2773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   football: {fileID: 1918507194}
-  force: 10
+  force: 20
   upForceMultipler: 0.75
   handGameObject: {fileID: 106506782}
   maxBallDistance: 0.4
@@ -3159,7 +3163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   football: {fileID: 1918507194}
-  force: 10
+  force: 20
   upForceMultipler: 0.75
   handGameObject: {fileID: 1914427626}
   maxBallDistance: 0.4
