@@ -22,6 +22,10 @@ public class ProjectionScript : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 		lineRenderer.gameObject.SetActive(false);
+		Color tempColour = Color.black;
+		tempColour.a = 0.0f;
+		lineRenderer.endColor = tempColour;
+		lineRenderer.startColor = tempColour;
 	}
 
 	// Update is called once per frame

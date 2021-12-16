@@ -17,12 +17,14 @@ public class AccessibilitySettings : MonoBehaviour
 {
     [SerializeField]
     Dropdown ColourBlindModeSlider;
-    private Material material;
-    private int colourBlindMode;
 
     Effects effectsScript;
-    Effects.ColorBlindMode mode;
-    Effects.ColorBlindMode previousMode;
+
+    private Material material;
+    private Effects.ColorBlindMode mode = Effects.ColorBlindMode.Normal;
+    private Effects.ColorBlindMode previousMode = Effects.ColorBlindMode.Normal;
+
+    
 
     /// <summary>
     /// get referances and set colourblind material
@@ -30,7 +32,7 @@ public class AccessibilitySettings : MonoBehaviour
     void Awake()
     {
         effectsScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Effects>();
-        material = new Material(Shader.Find("Hidden/ImageShader"));
+        material = new Material(Shader.Find("Hidden/ChannelMixer"));
         material.SetColor("_R", effectsScript.RGB[0, 0]);
         material.SetColor("_G", effectsScript.RGB[0, 1]);
         material.SetColor("_B", effectsScript.RGB[0, 2]);
@@ -95,6 +97,7 @@ public class AccessibilitySettings : MonoBehaviour
             Graphics.Blit(source, destination);
             return;
         }
+
         // Change effect
         if (mode != previousMode)
         {
@@ -103,6 +106,7 @@ public class AccessibilitySettings : MonoBehaviour
             material.SetColor("_B", effectsScript.RGB[(int)mode, 2]);
             previousMode = mode;
         }
+
         // Apply effect
         Graphics.Blit(source, destination, material);
     }

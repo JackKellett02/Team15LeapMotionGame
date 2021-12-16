@@ -66,6 +66,7 @@ public class ScoreScript : MonoBehaviour {
 		audioManager.StopInGameCrowdSound();
 		audioManager.StopGoalMissedSound();
 		audioManager.PlayGoalScoredSound(false);
+		StartCoroutine("NPCReact");
 
 		m_shots++;
 		m_goalsScored++;
@@ -82,11 +83,19 @@ public class ScoreScript : MonoBehaviour {
 		audioManager.StopInGameCrowdSound();
 		audioManager.StopGoalScoredSound();
 		audioManager.PlayGoalMissedSound(false);
+		StartCoroutine("NPCReact");
 		m_shots++;
 
 		UI_Cross[m_shots - 1].SetActive(true);
 		UI_Tick[m_shots - 1].SetActive(false);
 
+	}
+
+	private IEnumerator NPCReact()
+	{
+		NPCReactionsScript.NPCReactions(true);
+		yield return new WaitForSeconds(3.0f);
+		NPCReactionsScript.NPCReactions(false);
 	}
 
 	/// <summary>

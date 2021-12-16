@@ -7,7 +7,9 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class AudioSettings : MonoBehaviour
@@ -19,63 +21,27 @@ public class AudioSettings : MonoBehaviour
     [SerializeField]
     Slider SFXVolumeSlider;
 
-    GameObject[] audioPlayers;
-    GameObject[] musicPlayers;
+    [SerializeField]
+    AudioMixer audioPlayers;
 
     // Start is called before the first frame update
     void Start()
     {
-        masterVolumeSlider.onValueChanged.AddListener(delegate { masterValueChanged(masterVolumeSlider); });
-        musicVolumeSlider.onValueChanged.AddListener(delegate { musicValueChanged(musicVolumeSlider); });
-        SFXVolumeSlider.onValueChanged.AddListener(delegate { SFXValueChanged(SFXVolumeSlider); });
-
-        audioPlayers = GameObject.FindGameObjectsWithTag("Audio");
-        musicPlayers = GameObject.FindGameObjectsWithTag("Music");
-
 
     }
 
-    /// <summary>
-    /// update all audio players
-    /// </summary>
-    /// <param name="a_slider"></param>
-    void masterValueChanged(Slider a_slider)
+    public void UpdateMaster()
     {
-        UpdateMusic();
-        UpdateSFX();
+	    audioPlayers.SetFloat("MasterVolume", masterVolumeSlider.value);
     }
 
-    /// <summary>
-    /// set all music players to the updated volume
-    /// </summary>
-    /// <param name="a_slider"></param>
-    void musicValueChanged(Slider a_slider)
+    public void UpdateMusic()
     {
-        UpdateMusic();
+	    audioPlayers.SetFloat("MusicVolume", musicVolumeSlider.value);
     }
-
-    /// <summary>
-    /// set all sfx players to the updated volume
-    /// </summary>
-    /// <param name="a_slider"></param>
-    void SFXValueChanged(Slider a_slider)
-    {
-        UpdateSFX();
-    }
-
 
     public void UpdateSFX()
     {
-        foreach (GameObject go in audioPlayers)
-        {
-            go.GetComponent<AudioSource>().volume = (musicVolumeSlider.value / masterVolumeSlider.value);
-        }
-    }
-    public void UpdateMusic()
-    {
-        foreach (GameObject go in musicPlayers)
-        {
-            go.GetComponent<AudioSource>().volume = (musicVolumeSlider.value / masterVolumeSlider.value);
-        }
+	    audioPlayers.SetFloat("SFXVolume", SFXVolumeSlider.value);
     }
 }
