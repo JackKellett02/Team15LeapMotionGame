@@ -1,16 +1,21 @@
 HandBall
+--------------------------------------------------------------------------------------
 Group project for the Experimental Games module at the University Of Gloucestershire.
 
 Team Members:
 
-Jack Kellett
-Harry Oldham
-Jack Rooney
-Chris Johnson
-Helena Lima
+- Jack Kellett
+- Harry Oldham
+- Jack Rooney
+- Chris Johnson
+- Helena Lima
+--------------------------------------------------------------------------------------
+
 Leap Motion + Associated tracking software is required to play this game.
+--------------------------------------------------------------------------------------
 
 How to play:
+--------------------------------------------------------------------------------------
 
 Once you've loaded into the game, use the mouse to navigate through the main menu. Then to play, choose a game mode you wish to play. Make sure the leap motion is plugged into your device.
 
